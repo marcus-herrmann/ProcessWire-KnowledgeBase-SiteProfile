@@ -28,7 +28,7 @@ It's not possible to export user roles with [ProcessWire's Site Export Module](h
 * Tagging of wiki-articles
 * Set articles to globally sticky ( = for all users)
 * Personal bookmarking of articles for logged in users
-* When using markdown to author wiki-articles, code highlighting via [highlightjs](highlightjs.org)
+* When using markdown to author wiki-articles, code highlighting via [highlightjs](http://highlightjs.org)
 
 ## Included modules
 
