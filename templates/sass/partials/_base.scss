@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+
+	.container-sidebar & {
+		list-style: none;
+	}
+}
+
+li {
+	margin: 0 0 0 1%;
+	padding: 0;
+
+	.container-sidebar &,
+	.module-subpages &,
+	.module-stickypages &,
+	.module-bookmarklist &,
+	.module-recentpages & ,
+	.module-sources & {
+		margin-left: 1.4em;
+    	text-indent: -1.4em;
+    	list-style: none;
+	}
+
+	.container-sidebar &:before,
+	.module-subpages &:before,
+	.module-stickypages &:before,
+	.module-bookmarklist &:before,
+	.module-recentpages &:before,
+	.module-sources &:before {
+    	content: "› ";
+	}
+
+	.container-sidebar h3,
+	.module-arealist &,
+	.module-subpages &,
+	.module-pagetools &,
+	.module-usermgmt &,
+	.module-stickypages &,
+	.module-bookmarklist &,
+	.module-recentpages &,
+	.module-sources li {
+		margin-top: 0;
+		margin-bottom: .4em;
+	}
+
+}
+
+
+
+
+

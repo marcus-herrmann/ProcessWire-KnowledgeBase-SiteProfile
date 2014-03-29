@@ -1,0 +1,18 @@
+.module-breadcrumb {
+	margin-bottom: 1em;
+	display: block;
+	clear: both;
+	max-width: 90%;
+	@extend %flat_ul;
+	@extend %clearfix;
+
+	li {
+		color: $color_link;
+	}
+}
+
+
+.module-arealist {
+	margin-bottom: 1em;
+}
+

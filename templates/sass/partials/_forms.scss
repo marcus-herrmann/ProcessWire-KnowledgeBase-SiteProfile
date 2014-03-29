@@ -1,0 +1,83 @@
+.pure-form input {
+	.container-sidebar & {
+		width: 100%;
+	}
+}
+
+.btn-addsubpage {
+	padding-left: 22px;
+	opacity: .5;
+
+	h3 & {
+		padding-left: 0;
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.remove-bookmark {
+	padding-left: 20px;
+}
+
+#search_query,
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+	line-height: 28px;
+	height: 28px;
+	font-family: inherit;
+	padding: 2px 3px;
+	border-radius: 3px;
+}
+
+#search_form {
+	position: relative;
+}
+
+#search_query {
+	background: $color_main;
+	border: 1px solid $color_sidebar_text;
+	width: 100%;
+	color: $color_sidebar_text;
+}
+
+
+
+#search_submit {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: transparent;
+	border: none;
+	color: $color_sidebar_text;
+	z-index: 20;
+	height: 28px;
+}
+
+
+
+.module-login {
+	label {
+		display: inline-block;
+		float: left;
+		width: 100px;
+	}
+
+	input[type="text"],
+	input[type="password"] {
+		border: 1px solid $color_main;
+		color: $color_main;
+	}
+
+	input[type="submit"] {
+		margin-left: 100px;
+		border: none;
+		background: $color_main;
+		color: $color_sidebar_text; 
+		padding-left: 20px;
+		padding-right: 20px;
+		line-height: 22px;
+	}
+}

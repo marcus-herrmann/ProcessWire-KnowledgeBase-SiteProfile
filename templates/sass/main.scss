@@ -1,0 +1,21 @@
+// Variables
+$color_main: rgb(44, 62, 80);
+$color_main_lite: lighten($color_main, 30%);
+$color_secondary: rgb(204, 185, 162);
+$color_sidebar: $color_main;
+$color_sidebar_text: rgb(255,255,255);
+$color_content: rgb(255,255,255);
+$color_content_text: rgb(51,51,51);
+$color_link: $color_main;
+$base_font_size: 15px;
+$padding: (2*$base_font_size);
+
+// Includes
+@import "partials/_purecss";
+@import "partials/_base";
+@import "partials/_helpers";
+@import "partials/_typography";
+@import "partials/_layout";
+@import "partials/_navigation";
+@import "partials/_forms";
+@import "partials/_modules";

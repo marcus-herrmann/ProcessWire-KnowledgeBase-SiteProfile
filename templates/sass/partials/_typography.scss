@@ -1,0 +1,102 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 15px;
+}
+
+.wikipage-title {
+	margin-top: 0;
+}
+
+p {
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	font-weight: 600;
+}
+
+.title-area {
+	margin-bottom: .4em;
+	
+	a {
+		color: $color_secondary;
+	}
+}
+
+.title-site {
+	margin-top: 0;
+}
+
+a {
+	.container-content & {
+		color: $color_link;
+
+		&:hover {
+			color: $color_main_lite;
+		}
+
+		&:active {
+			color: darken($color_link, 50%);
+		}
+	}
+
+	.container-sidebar & {
+		color: $color_sidebar_text;
+	}
+
+	h1 &, h2 &, h3 &, h4 &,
+	.module-taglist &,
+	.module-taglist &:hover {
+		text-decoration: none;
+	}
+
+	.container-sidebar &:hover {
+		text-decoration: underline;
+	}
+
+}
+
+li {
+	.container-content & {
+		list-style-position: inside;
+	}
+}
+
+.fa span,
+.container-sidebar .title-search {
+	@extend %hide-text;
+}
+
+.title-page {
+	font-size: 28px;
+	margin-top: 0;
+	margin-bottom: .4em;
+}
+
+.editpage {
+	font-size: 70%;
+}
+
+.page-meta {
+	display: block;
+	margin-bottom: 1em;
+	font-style: italic;
+	font-size: 13px;
+	color: $color_main_lite;
+}
+
+h2 .fredi,{
+	color: $color_main_lite;
+}
+
+.bookmark-count {
+	color: $color_secondary;
+	font-weight: 600;
+}
+
+.module-sources h4 {
+	margin-bottom: .4em;
+}
+
+

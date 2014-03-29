@@ -1,0 +1,708 @@
+@charset "UTF-8";
+/*!
+Pure v0.4.2
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yui/pure/blob/master/LICENSE.md
+*/
+/*!
+normalize.css v1.1.3 | MIT License | git.io/normalize
+Copyright (c) Nicolas Gallagher and Jonathan Neal
+*/
+/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
+/* line 11, ../../sass/partials/_purecss.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+[hidden] {
+  display: none;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+html {
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+html, button, input, select, textarea {
+  font-family: sans-serif;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+body {
+  margin: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+a:active, a:hover {
+  outline: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+h2 {
+  font-size: 1.5em;
+  margin: .83em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+h5 {
+  font-size: .83em;
+  margin: 1.67em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+h6 {
+  font-size: .67em;
+  margin: 2.33em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+b, strong {
+  font-weight: 700;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+blockquote {
+  margin: 1em 40px;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+dfn {
+  font-style: italic;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+p, pre {
+  margin: 1em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+code, kbd, pre, samp {
+  font-family: monospace,serif;
+  _font-family: 'courier new',monospace;
+  font-size: 1em;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+q {
+  quotes: none;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+sup {
+  top: -.5em;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+sub {
+  bottom: -.25em;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+dl, menu, ol, ul {
+  margin: 1em 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+dd {
+  margin: 0 0 0 40px;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+menu, ol, ul {
+  padding: 0 0 0 40px;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+figure {
+  margin: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+form {
+  margin: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  *margin-left: -7px;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+button, input, select, textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+button, input {
+  line-height: normal;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+button, select {
+  text-transform: none;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  *overflow: visible;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 11, ../../sass/partials/_purecss.scss */
+[hidden] {
+  display: none !important;
+}
+
+/* line 1, ../../sass/partials/_base.scss */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* line 6, ../../sass/partials/_base.scss */
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 10, ../../sass/partials/_base.scss */
+.container-sidebar ul {
+  list-style: none;
+}
+
+/* line 15, ../../sass/partials/_base.scss */
+li {
+  margin: 0 0 0 1%;
+  padding: 0;
+}
+/* line 19, ../../sass/partials/_base.scss */
+.container-sidebar li, .module-subpages li, .module-stickypages li, .module-bookmarklist li, .module-recentpages li, .module-sources li {
+  margin-left: 1.4em;
+  text-indent: -1.4em;
+  list-style: none;
+}
+/* line 30, ../../sass/partials/_base.scss */
+.container-sidebar li:before, .module-subpages li:before, .module-stickypages li:before, .module-bookmarklist li:before, .module-recentpages li:before, .module-sources li:before {
+  content: "› ";
+}
+/* line 39, ../../sass/partials/_base.scss */
+li .container-sidebar h3, .module-arealist li, .module-subpages li, .module-pagetools li, .module-usermgmt li, .module-stickypages li, .module-bookmarklist li, .module-recentpages li,
+li .module-sources li {
+  margin-top: 0;
+  margin-bottom: .4em;
+}
+
+/* line 2, ../../sass/partials/_helpers.scss */
+.container-content:after, .page-content:after, .module-breadcrumb:after, .module-taglist:after, .module-treemenu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 9, ../../sass/partials/_helpers.scss */
+.module-breadcrumb, .module-taglist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 14, ../../sass/partials/_helpers.scss */
+.module-breadcrumb li, .module-taglist li {
+  padding: 0;
+  margin: 0;
+  float: left;
+  text-indent: 0;
+}
+/* line 21, ../../sass/partials/_helpers.scss */
+.module-breadcrumb li:before, .module-taglist li:before {
+  content: "";
+}
+
+/* line 26, ../../sass/partials/_helpers.scss */
+.fa span,
+.container-sidebar .title-search {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+/* line 1, ../../sass/partials/_typography.scss */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+}
+
+/* line 6, ../../sass/partials/_typography.scss */
+.wikipage-title {
+  margin-top: 0;
+}
+
+/* line 10, ../../sass/partials/_typography.scss */
+p {
+  line-height: 1.5;
+}
+
+/* line 14, ../../sass/partials/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+/* line 19, ../../sass/partials/_typography.scss */
+.title-area {
+  margin-bottom: .4em;
+}
+/* line 22, ../../sass/partials/_typography.scss */
+.title-area a {
+  color: #ccb9a2;
+}
+
+/* line 27, ../../sass/partials/_typography.scss */
+.title-site {
+  margin-top: 0;
+}
+
+/* line 32, ../../sass/partials/_typography.scss */
+.container-content a {
+  color: #2c3e50;
+}
+/* line 35, ../../sass/partials/_typography.scss */
+.container-content a:hover {
+  color: #698aac;
+}
+/* line 39, ../../sass/partials/_typography.scss */
+.container-content a:active {
+  color: black;
+}
+/* line 44, ../../sass/partials/_typography.scss */
+.container-sidebar a {
+  color: white;
+}
+/* line 48, ../../sass/partials/_typography.scss */
+h1 a, h2 a, h3 a, h4 a, .module-taglist a, .module-taglist a:hover {
+  text-decoration: none;
+}
+/* line 54, ../../sass/partials/_typography.scss */
+.container-sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* line 61, ../../sass/partials/_typography.scss */
+.container-content li {
+  list-style-position: inside;
+}
+
+/* line 71, ../../sass/partials/_typography.scss */
+.title-page {
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: .4em;
+}
+
+/* line 77, ../../sass/partials/_typography.scss */
+.editpage {
+  font-size: 70%;
+}
+
+/* line 81, ../../sass/partials/_typography.scss */
+.page-meta {
+  display: block;
+  margin-bottom: 1em;
+  font-style: italic;
+  font-size: 13px;
+  color: #698aac;
+}
+
+/* line 89, ../../sass/partials/_typography.scss */
+h2 .fredi {
+  color: #698aac;
+}
+
+/* line 93, ../../sass/partials/_typography.scss */
+.bookmark-count {
+  color: #ccb9a2;
+  font-weight: 600;
+}
+
+/* line 98, ../../sass/partials/_typography.scss */
+.module-sources h4 {
+  margin-bottom: .4em;
+}
+
+/* line 1, ../../sass/partials/_layout.scss */
+.container-content {
+  background: white;
+  color: #333333;
+  margin-left: 300px;
+  margin-right: 200px;
+  padding-bottom: 60px;
+}
+
+/* line 10, ../../sass/partials/_layout.scss */
+.container-sidebar {
+  background: #2c3e50;
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  overflow: scroll;
+}
+/* line 19, ../../sass/partials/_layout.scss */
+.container-sidebar .module {
+  margin-bottom: 3em;
+}
+
+/* line 24, ../../sass/partials/_layout.scss */
+.container-extras {
+  width: 160px;
+  position: absolute;
+  right: 30px;
+}
+
+/* line 30, ../../sass/partials/_layout.scss */
+.container-content,
+.container-sidebar {
+  padding: 30px;
+}
+
+/* line 35, ../../sass/partials/_layout.scss */
+.module-pagetags,
+.module-subpages,
+.module-recentpages,
+.module-stickypages {
+  border-top: 1px solid #ecf1f5;
+  display: inline-block;
+  width: 50%;
+  float: left;
+  padding-top: 1em;
+}
+
+/* line 1, ../../sass/partials/_navigation.scss */
+.module-breadcrumb {
+  margin-bottom: 1em;
+  display: block;
+  clear: both;
+  max-width: 90%;
+}
+/* line 9, ../../sass/partials/_navigation.scss */
+.module-breadcrumb li {
+  color: #2c3e50;
+}
+
+/* line 15, ../../sass/partials/_navigation.scss */
+.module-arealist {
+  margin-bottom: 1em;
+}
+
+/* line 2, ../../sass/partials/_forms.scss */
+.container-sidebar .pure-form input {
+  width: 100%;
+}
+
+/* line 7, ../../sass/partials/_forms.scss */
+.btn-addsubpage {
+  padding-left: 22px;
+  opacity: .5;
+}
+/* line 11, ../../sass/partials/_forms.scss */
+h3 .btn-addsubpage {
+  padding-left: 0;
+}
+/* line 15, ../../sass/partials/_forms.scss */
+.btn-addsubpage:hover {
+  opacity: 1;
+}
+
+/* line 20, ../../sass/partials/_forms.scss */
+.remove-bookmark {
+  padding-left: 20px;
+}
+
+/* line 24, ../../sass/partials/_forms.scss */
+#search_query,
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  line-height: 28px;
+  height: 28px;
+  font-family: inherit;
+  padding: 2px 3px;
+  border-radius: 3px;
+}
+
+/* line 35, ../../sass/partials/_forms.scss */
+#search_form {
+  position: relative;
+}
+
+/* line 39, ../../sass/partials/_forms.scss */
+#search_query {
+  background: #2c3e50;
+  border: 1px solid white;
+  width: 100%;
+  color: white;
+}
+
+/* line 48, ../../sass/partials/_forms.scss */
+#search_submit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  z-index: 20;
+  height: 28px;
+}
+
+/* line 62, ../../sass/partials/_forms.scss */
+.module-login label {
+  display: inline-block;
+  float: left;
+  width: 100px;
+}
+/* line 68, ../../sass/partials/_forms.scss */
+.module-login input[type="text"],
+.module-login input[type="password"] {
+  border: 1px solid #2c3e50;
+  color: #2c3e50;
+}
+/* line 74, ../../sass/partials/_forms.scss */
+.module-login input[type="submit"] {
+  margin-left: 100px;
+  border: none;
+  background: #2c3e50;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 22px;
+}
+
+/* line 1, ../../sass/partials/_modules.scss */
+.module-pagetools {
+  list-style: none;
+}
+
+/* line 5, ../../sass/partials/_modules.scss */
+.module-pagetools a {
+  text-decoration: none;
+  color: #698aac;
+  font-size: 85%;
+}
+/* line 10, ../../sass/partials/_modules.scss */
+.module-pagetools a:hover {
+  color: #2c3e50;
+}
+
+/* line 15, ../../sass/partials/_modules.scss */
+.module-pagetools .fa {
+  width: 1.2em;
+  display: inline-block;
+}
+
+/* line 24, ../../sass/partials/_modules.scss */
+.module-taglist a {
+  display: inline-block;
+  background: white;
+  color: #2c3e50;
+  padding: 2px 10px 3px;
+  margin: 0 4px 4px 0;
+  border-radius: 3px;
+}
+/* line 32, ../../sass/partials/_modules.scss */
+.container-content .module-taglist a {
+  background: #2c3e50;
+  color: white;
+}
+/* line 38, ../../sass/partials/_modules.scss */
+.container-sidebar .module-taglist a:hover {
+  text-decoration: none;
+}
+
+/* line 46, ../../sass/partials/_modules.scss */
+.module-treemenu li {
+  margin-bottom: .4em;
+  list-style: none;
+}
+/* line 51, ../../sass/partials/_modules.scss */
+.module-treemenu ul {
+  margin-top: .4em;
+}
+
+/* line 56, ../../sass/partials/_modules.scss */
+.module-sources {
+  margin-top: 2em;
+}
+
+/* line 60, ../../sass/partials/_modules.scss */
+a.module-treemenu__link--current {
+  font-weight: 600;
+}
+/* line 63, ../../sass/partials/_modules.scss */
+a.module-treemenu__link--current, a.module-treemenu__link--current + a {
+  color: #ccb9a2;
+}
+
+/* line 68, ../../sass/partials/_modules.scss */
+.module-treemenu__item--current:before {
+  color: #ccb9a2;
+}

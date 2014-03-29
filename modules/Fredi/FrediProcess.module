@@ -1,0 +1,232 @@
+<?php
+
+/**
+ *
+ * Copyright 2013 by Antti Peisa
+ *
+ *
+ * ProcessWire 2.3 
+ * Copyright (C) 2012 by Ryan Cramer 
+ * Licensed under GNU/GPL v2, see LICENSE.TXT
+ * 
+ * http://processwire.com
+ *
+ */
+
+class FrediProcess extends Process {
+
+	/**
+	 * Return information about this module (required)
+	 *
+	 */
+	public static function getModuleInfo() {
+		return array(
+			'title' => 'Fredi - field edit', 
+			'summary' => 'Edit just a single field.', 
+			'version' => 100, 
+			'author' => 'Antti Peisa', 
+			'permission' => 'page-edit', 
+			); 
+	}
+
+	const pageName = 'fredi-field-edit';
+	
+	
+	public $pageId;
+	public $pageContext;
+	public $fields;
+	public $fieldsArray = array();
+	public $inputField;
+	public $pageEdit;
+
+	public function init() {
+		parent::init(); // required
+	}
+
+	public function ___execute() {
+	
+		$this->pageId = (int) $this->input->get("id");
+		$this->fields = $this->input->get("fields");
+		
+		$this->pageContext = $this->pages->get($this->pageId);
+		$this->pageContext->setTrackChanges(true); 
+		
+		// This is for the ajax stuff (like images and files)
+		$this->pageEdit = $this->modules->get("ProcessPageEdit");
+		$this->pageEdit->setTrackChanges(true);
+		if($this->config->ajax && (isset($_SERVER['HTTP_X_FIELDNAME']) || count($_POST))) {
+			$this->pageContext->trackChange($_SERVER['HTTP_X_FIELDNAME']); 
+			return $this->pageEdit->ajaxSave($this->pageContext);
+		}
+		
+		// Check if there is not such a page found
+		if ( ! $this->pageContext->id) throw new WireException("Page not found");
+		
+		// Check that this page is editable by current user
+		if ( ! $this->pageContext->editable()) throw new WireException("You don't have right to edit this page");
+		
+		// Ajaxuploader requires this
+		$out = "<p style='display: none' id='PageIDIndicator'>$this->pageId</p>";
+		
+		// Check whether we should render whole page-edit form or just some fields
+		if ($this->fields === "frediAll") {
+			$out .= $this->renderPageForm();
+		} 
+		else {
+			$out .= $this->renderFieldsForm();
+		}
+		
+		return $out;
+		
+		
+	}
+	
+	public function renderFieldsForm() {
+		
+		$out = '';
+		
+		$this->fieldsArray = explode("|", $this->fields);
+		
+		foreach($this->fieldsArray as $fieldName) {
+			// Check if page has the field that wants to be edited
+			if ( ! $this->pageContext->fields->has($fieldName)) throw new WireException("There is no field $fieldName on editable page");
+			
+			// Check if the current user has rights to edit that field
+			if ( ! $this->pageContext->editable($fieldName)) throw new WireException("You don't have rights to edit field $fieldName");
+			
+		}
+		
+		$form = $this->modules->get('InputfieldForm');
+		$form->attr("action", "./?id=$this->pageId&fields=$this->fields&modal=1");
+		$form->attr('method', 'post'); 
+		$form->attr('enctype', 'multipart/form-data'); 
+		
+		// Build the form (loop fields and add their respected inputfields)
+		foreach($this->fieldsArray as $fieldName) {
+			$field = $this->pageContext->fields->get($fieldName);
+			$inputField = $field->getInputfield($this->pageContext);
+			$inputField->value = $this->pageContext->{$fieldName};
+			$inputField->columnWidth = 100;
+			$form->add($inputField);
+		}
+		
+		$submit = $this->modules->get('InputfieldSubmit');
+		$form->add($submit);
+		
+		// If form was submitted, process it
+		if (count($_POST)) return $this->processInput($form);
+		
+		$out .= $form->render();
+		
+		return $out;
+	}
+	
+	public function renderPageForm() {
+	
+		$form = $this->modules->get('InputfieldForm');
+		$form = $this->pageEdit->buildForm($form);
+		$form->action = $form->action . "&fields=frediAll";
+		
+		if(count($_POST)) return $this->processInput($form);
+	
+		return $form->render();
+	}
+	
+	/*
+	 * This method is simplified version of /wire/modules/process/ProcessPageEdit.module processInput() method
+	 *
+	 * First process the input, then loops through all the form fields, set page field values and finally saves the page
+	 *
+	 * If field is wrapper, then iterates (this case only with full page save)
+	 *
+	 */
+	public function processInput(Inputfield $form, $level = 0) {
+	
+		$form->setTrackChanges(true);
+		//$this->pageContext->setTrackChanges(true);
+		
+		if(!$level) $form->processInput($this->input->post);
+		
+		// Loop all the elements on the form
+		foreach($form->children as $field) {
+			// Process their values
+			$field->setTrackChanges(true);
+			
+			//$field->processInput($this->input->post);
+
+			
+			if(wire('languages') && $field->useLanguages) {
+				$v = $this->pageContext->get($field->name); 
+				if(is_object($v)) {
+					$v->setFromInputfield($field); 
+					$this->pageContext->set($field->name, $v); 
+					$this->pageContext->trackChange($field->name); 
+				}
+			} else { 
+				$this->pageContext->set($field->name, $field->value);
+			}
+			
+			if($field instanceof InputfieldWrapper && count($field->getChildren())) $this->processInput($field, $level + 1); 
+		}
+		
+		
+
+		// And save the page
+		$this->pageContext->save();
+
+		// Finally a JS-reload to see the changes
+		return "<h2>" . $this->_("Page saved") . "</h2><script>parent.location.reload()</script>";
+	}
+
+	
+
+
+	/**
+	 * Called only when your module is installed
+	 *
+	 * This version creates a new page with this Process module assigned. 
+	 *
+	 */
+	public function ___install() {
+
+		// create the page our module will be assigned to
+		$page = new Page();
+		$page->template = 'admin';
+		$page->name = self::pageName; 
+
+		// installs to the admin "Setup" menu ... change as you see fit
+		$page->parent = $this->pages->get($this->config->adminRootPageID)->child('name=page');
+		$page->process = $this; 
+
+		// we will make the page title the same as our module title
+		$info = self::getModuleInfo();
+		$page->title = $info['title'];
+
+		// save the page
+		$page->save();
+
+		// tell the user we created this page
+		$this->message("Created Page: {$page->path}"); 
+	}
+
+	/**
+	 * Called only when your module is uninstalled
+	 *
+	 * This should return the site to the same state it was in before the module was installed. 
+	 *
+	 */
+	public function ___uninstall() {
+
+		// find the page we installed, locating it by the process field (which has the module ID)
+		// it would probably be sufficient just to locate by name, but this is just to be extra sure.
+		$moduleID = $this->modules->getModuleID($this); 
+		$page = $this->pages->get("template=admin, process=$moduleID, name=" . self::pageName); 
+
+		if($page->id) {
+			// if we found the page, let the user know and delete it
+			$this->message("Deleting Page: {$page->path}"); 
+			$page->delete();
+		}
+	}
+	
+}

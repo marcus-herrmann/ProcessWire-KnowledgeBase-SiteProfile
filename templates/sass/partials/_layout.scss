@@ -1,0 +1,48 @@
+.container-content {
+	background: $color_content;
+	color: $color_content_text;
+	margin-left: 300px;
+	margin-right: 200px;
+	padding-bottom: (2*$padding);
+	@extend %clearfix;
+}
+
+.container-sidebar {
+	background: $color_sidebar;
+	color: $color_sidebar_text;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 300px;
+	overflow: scroll;
+
+	.module {
+		margin-bottom: 3em;
+	}
+}
+
+.container-extras {
+	width: 160px;
+	position: absolute;
+	right: $padding;
+}
+
+.container-content,
+.container-sidebar {
+	padding: $padding;
+}
+
+.module-pagetags,
+.module-subpages,
+.module-recentpages,
+.module-stickypages {
+	border-top: 1px solid lighten($color_main_lite, 40%);
+	display: inline-block;
+	width: 50%;
+	float: left;
+	padding-top: 1em;
+}
+
+.page-content {
+	@extend %clearfix;
+}

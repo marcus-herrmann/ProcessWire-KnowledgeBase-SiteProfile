@@ -1,0 +1,30 @@
+%clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+%flat_ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		padding: 0;
+		margin: 0;
+		float: left;
+		text-indent: 0;
+	}
+
+	li:before {
+		content: "";
+	}
+}
+
+%hide-text{
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
