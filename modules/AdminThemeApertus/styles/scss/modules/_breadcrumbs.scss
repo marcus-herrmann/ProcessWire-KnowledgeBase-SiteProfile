@@ -1,0 +1,43 @@
+/**
+ * Breadcrumb styles
+ *
+ */
+
+.module-breadcrumbs {
+	padding-bottom: 1.5em;
+
+	ul {
+
+		li {
+			display: inline-block;
+			padding: 0;
+			line-height: 1em;
+			white-space: nowrap;
+			padding-right: 0.5em;
+
+			&.title {
+				color: $breadcrumbs-title-color;
+				font-weight: $bold-weight;
+			}
+
+			a {
+				margin-right: 0.5em;
+
+				&:hover {
+					background: none;
+					text-decoration: underline;
+				}
+
+				&.sitelink {
+					float: left;
+
+					.ui-icon {
+						float: left;
+						position: relative;
+						top: -2px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+/**
+ * Header
+ *
+ */
+
+
+.footer-main {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+
+	li {
+		float: left;
+		margin-left: 8px;
+
+		span {
+			@extend %hide_text;
+		}
+	}
+
+}

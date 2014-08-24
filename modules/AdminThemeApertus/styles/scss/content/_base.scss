@@ -1,0 +1,38 @@
+/**
+ * Base content styles
+ *
+ */
+
+.main-content {
+	@extend %clearfix;
+	min-height: 100%;
+	position: absolute;
+	left: 300px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: auto;
+	padding: $padding $padding 4*$padding $padding;
+
+	.modal & {
+		position: relative;
+		left: 0;
+		padding: 0;
+	}
+}
+
+
+dl.nav {
+	dt {
+		border-top: 1px dotted #ccc;
+		padding-top: 5px;
+	}
+
+	dd {
+		min-height: 3em;
+	}
+}
+
+div#fieldgroupContext {
+	position: relative;
+}

@@ -1,0 +1,23 @@
+/**
+ * Environment indicator styles
+ *
+ */
+
+.module-environmentindicator {
+	padding: $padding/2 $padding;
+	font-weight: 600;
+	color: white;
+	background: transparent;
+}
+
+.module-environmentindicator--production {
+	background: #562f32;
+}
+
+.module-environmentindicator--development {
+	background: #33512d;
+}
+
+.module-environmentindicator--staging {
+	background: #585630;
+}

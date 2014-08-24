@@ -1,0 +1,86 @@
+<?php
+
+/**
+ * Apertus Admin Theme
+ * @author  marcus
+ *
+ * Based on code from Ryan Cramer (AdminThemeDefault) and Philipp Urlich "Soma" (PageListShowPageId)
+ *
+ * ProcessWire 2.x
+ * Copyright (C) 2010 by Ryan Cramer
+ * Licensed under GNU/GPL v2, see LICENSE.TXT
+ *
+ * http://www.processwire.com
+ * http://www.ryancramer.com
+ *
+ */
+
+class AdminThemeApertus extends AdminTheme implements Module, ConfigurableModule {
+
+	public static function getModuleInfo() {
+		return array(
+			'title' => 'Apertus Admin Theme',
+			'version' => 001,
+			'summary' => 'Minimal admin theme for developers',
+			'autoload' => 'template=admin'
+			); 
+	}
+
+	public function init() {
+		parent::init(); 
+		if($this->isCurrent()) {
+			// this is the current admin theme
+		}
+
+		if($this->user->isSuperuser()){
+			$this->addHookAfter('ProcessPageListRender::getPageLabel', $this, 'addPageIdLabel');
+		}
+	}
+
+	public function ___install() {
+		parent::___install();
+		$p = new Page();
+//		$p->template = $this->templates->get("admin");
+//		$p->parent = $this->pages->get("template=admin, name=module");
+//		$p->title = $this->_('New');
+//		$p->save();
+	}
+
+	public static function getModuleConfigInputfields(array $data) {
+		$inputfields = new InputfieldWrapper();
+
+		$field = wire('modules')->get('InputfieldText');
+		$field->name = 'sitename';
+		$field->label = "Enter the name of your site";
+		if(isset($data['sitename'])) $field->value = $data['sitename'];
+		$inputfields->add($field);
+
+		$field = wire('modules')->get('InputfieldText');
+		$field->name = 'color';
+		$field->label = "Apertus main color";
+		$field->description = "Please provide a hex, rgb(a), hsl(a), or named CSS value";
+		if(isset($data['color'])) $field->value = $data['color'];
+		$inputfields->add($field);
+
+		$field = wire('modules')->get('InputfieldRadios');
+		$field->attr('name', 'environmentindicator');
+		$field->label = __('Environment Indicator');
+		$field->addOption('none', __('None'));
+		$field->addOption('Production', __('Production'));
+		$field->addOption('Staging', __('Staging'));
+		$field->addOption('Development', __('Development'));
+		$field->attr('value', isset($data['environmentindicator']) ? $data['environmentindicator'] : 'none');
+		$field->optionColumns = 1;
+		$inputfields->add($field);
+
+		return $inputfields;
+	}
+
+	public function addPageIdLabel($event){
+		$page = $event->arguments('page');
+		$label = "<span class='pagelist-id'>{$page->id}</span>" . $event->return;
+		$event->return = $label;
+	}
+
+}
+

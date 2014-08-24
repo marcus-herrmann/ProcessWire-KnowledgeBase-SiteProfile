@@ -1,0 +1,180 @@
+/**
+ * PageList content
+ *
+ */
+
+.main-content {
+
+	/**
+	 * Actions: like the "|edit|view|new" in the PageList
+	 *
+	 */
+
+	.PageListActions {
+		margin-left: -2px;
+	}
+
+	.PageListStatusIcon {
+		color: lighten($text-color, 40%); 
+		font-size: 14px;
+	}
+
+	.actions {
+		line-height: 1.2em; 
+	}
+		ul.actions li,
+		.PageListActions li,
+		li.action {
+			border: none; 
+			padding: 0 1px; 
+			margin: 0;
+			margin-right: 3px; 
+		
+		}
+		ul.actions li:first-child:before,
+		.PageListActions li:first-child:before,
+		li.action:first-child:before {
+			content: "\203A";
+			margin-right: 3px; 
+			color: lighten($text-color,50%); 
+		}
+
+
+	li.action a, .actions a, 
+	.PageList .actions a,
+	.PageListMoveNote a {
+		/* action links */
+		color: $action-link-color;
+		padding: 0 5px;
+		display: inline-block;
+		font-size: $action-link-font-size; 
+		border-radius: 3px; 
+		border: $action-link-border !important; 
+		font-weight: $bold-weight; 
+	}
+
+	.PageListMoveNote {
+		text-transform: lowercase; 
+		cursor: move; 
+	}
+
+
+	.PageListActionMore a {
+		margin-top: 0.25em; 
+	}
+
+	.PageListSelectName {
+		margin-right: 0.5em; 
+		i {
+			margin-right: 0.25em; 
+		}
+	}
+
+	/**
+	 * PageList
+	 *
+	 */
+
+	.PageList {
+
+		.PageListItem {
+			border-bottom: 1px dotted #ccc;
+			padding-top: 0.35em;
+			padding-bottom: 0.35em; 
+			line-height: 1.3em; 
+
+			> a.PageListPage { 
+				opacity: 1.0;
+
+				&:hover {
+					text-decoration: underline;
+
+					i {
+						text-decoration: none; 
+					}
+				}
+
+				&:active {
+					text-decoration: underline;
+					color: $pagelist-link-active-color;
+				}
+
+				i {
+					/* icon */
+					padding: 0 0.25em 0 0;
+					color: $pagelist-link-icon-color;
+
+					&.PageListStatusIcon {
+						color: #777;
+					}
+				}
+			}
+
+			.PageListLoading {
+				top: 5px; 
+			}
+
+		}
+
+		.PageListItemOpen {
+			> a.PageListPage {
+				background-color: $pagelist-link-open-bg;
+			}
+		}
+
+		.PageListStatusHidden:not(.PageListItemOpen) {
+			> a.PageListPage {
+				opacity: 0.6; 
+			}
+		}
+
+		.PageListStatusTemp:not(.PageListItemOpen) {
+			> a.PageListPage {
+				opacity: 0.3; 
+			}
+		}
+
+		.PageListPlaceholderItem {
+			border: none;
+			padding: 0;
+		}
+
+
+		.PageListNumChildren {
+			font-size: 0.833333em;
+		}
+
+
+	}
+
+}
+
+.PageListPagination a {
+	margin-bottom: 5px; 
+}
+
+.pagelist-id {
+	font-size: 0.833333em;
+	font-weight: bold;
+	margin-right: $padding/3;
+
+	a:hover & {
+		text-decoration: none;
+	}
+}
+
+.PageListItem > a span.pagelist-id + span:before {
+	content: '';
+}
+
+.main-content .PageList .PageListItem>a.PageListPage:hover {
+	text-decoration: none;
+}
+
+.main-content .PageList .PageListItem>a:hover .label_title {
+	text-decoration: underline;
+}
+
+.fa.ui-priority-secondary {
+	opacity: 1;
+}

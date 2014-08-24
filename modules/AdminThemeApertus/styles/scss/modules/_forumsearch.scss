@@ -1,0 +1,18 @@
+/**
+ * Form search form styles
+ *
+ */
+
+.module-forumsearch {
+	padding: .75em 0 1em;
+	border: 0 dotted #ccc;
+	border-top-width: 1px;
+
+	input[type="text"] {
+		float: left;
+	}
+
+	input[type="submit"] {
+		display: none;
+	}
+}

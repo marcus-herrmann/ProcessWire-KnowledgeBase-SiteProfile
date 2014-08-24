@@ -1,0 +1,23 @@
+/**
+ * Mixins, Helpers, Silent Classes
+ *
+ */
+
+%clearfix {
+	zoom:1;
+	&:before, &:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		overflow: hidden;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+%hide_text {
+	font: 0/0 serif;
+	text-shadow: none;
+	color: transparent;
+}

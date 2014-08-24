@@ -1,0 +1,37 @@
+/**
+ * Header
+ *
+ */
+
+.header-main {
+	float: left;
+	width: 300px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+
+	.fa {
+		width: 22px;
+	}
+
+	.container {
+		padding: $padding;
+	}
+
+	.modal & {
+		display: none;
+	}
+}
+
+#ProcessPageSearchAutocomplete.ui-autocomplete {
+	padding-right: 0;
+	max-height: 9999px;
+	height: auto; 
+	box-shadow: none; 
+
+}
+
+.collapse-topnav-menu {
+	display: none;
+}
