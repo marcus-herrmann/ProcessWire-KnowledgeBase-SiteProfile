@@ -9,7 +9,7 @@
 
 include("./partials/head.inc"); 
 
-if ($user->isLoggedin() && $user->hasRole('foo-user')) {
+if ($user->isLoggedin() && $user->hasRole('wiki-user')) {
 
 	?><div class="container-extras"><?php
 
