@@ -40,7 +40,7 @@
 	<h1 class="title title-site"><a href="<?php echo $pages->get('/')->url; ?>"><?php echo $pages->get('/')->siteName; ?></a></h1>
 
 
-	<?php if ($user->isLoggedin()) { ?>
+	<?php if ($user->isLoggedin() && $user->hasRole('wiki-user')) { ?>
 
 		<?php
 			include("./partials/searchform.inc"); 
@@ -72,11 +72,11 @@
 
 	<?php } // logged in ?>
 
-		<?php if ($user->isLoggedin()) { ?>
+		<?php if ($user->isLoggedin() && $user->hasRole('wiki-user')) { ?>
 			<div class="module-usermgmt module">
 			<h3>Hello <a href="<?php echo $pages->get('1026')->url; ?>"><?php echo $user->name; ?>!</a></h3>
 			<ul>
-			<li><a href="<?php echo $pages->get('1026')->url; ?>">Manage my bookmarks</a> <span class='bookmark-count'>(<?php echo count($user->bookmarkedPagesByUser); ?>)</span></li>
+			<li><a href="<?php echo $pages->get('1026')->url; ?>">Manage my bookmarks</a> <span class='bookmark-count'>(<?php echo $modules->get("FlagPages")->showFlagCount() ?>)</span></li>
 			<li><a href="<?php echo $config->urls->admin; ?>access/users/edit/?id=<?php echo $user->id; ?>">Edit my profile</a></li>
 			<li><a href="<?php echo $config->urls->admin; ?>">ProcessWire Admin</a></li>
 			<li><a href="<?php echo $pages->get('1035')->url; ?>">Logout</a></li>

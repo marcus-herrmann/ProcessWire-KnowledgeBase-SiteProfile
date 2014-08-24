@@ -23,7 +23,7 @@ class FlagPages extends WireData implements Module, ConfigurableModule {
 	public static function getModuleInfo() {
 		return array(
 			"title" => "FlagPages",
-			"version" => 021,
+			"version" => 022,
 			"summary" => "Lets logged-in user flag page content"
 		);
 	}
@@ -145,7 +145,7 @@ class FlagPages extends WireData implements Module, ConfigurableModule {
 		}
 	}
 
-	public function renderList() {
+	public function renderList($classes) {
 
 		/*
  		 * Provide a list for navigating to, and removing user's flags
@@ -156,7 +156,7 @@ class FlagPages extends WireData implements Module, ConfigurableModule {
 
 		if ($this->user->isLoggedin() && $userFlaggedPages) {
 
-			echo "<ul>";
+			echo "<ul class='{$classes}'>";
 
 			foreach($userFlaggedPages as $f) {
 				echo "<li><a href='" . $f->url . "'>" . $f->title . "</a></li>";
@@ -165,6 +165,16 @@ class FlagPages extends WireData implements Module, ConfigurableModule {
 			echo "</ul>";
 
 		}
+	}
+
+	public function showFlagCount() {
+
+		/*
+ 		 * Return count of currently flagged pages
+ 		 */
+
+		return count($this->user->flaggedpages);
+
 	}
 
 	public function init() {}

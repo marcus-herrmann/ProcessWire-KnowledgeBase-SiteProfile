@@ -1,4 +1,4 @@
-FlagPages 0.2.1
+FlagPages 0.2.2
 =========
 
 Module for ProcessWire: lets logged-in users flag pages.
@@ -44,6 +44,19 @@ echo $flags->renderList();
 
 This will output a simple unordered list with links to pages the currently logged-in user has set a flag to.
 
+```
+echo $flages->renderList("classname foo bar");
+```
+
+Optional: If you would like to apply HTML classes on the generated unordered list, supply them as a string to the function's parameter.
+
+### Outputting the flagged pages count of the logged in user
+
+```
+echo $flags->showFlagCount();
+```
+
+Returns the count of flagged pages.
 
 ## Installation
 
@@ -66,6 +79,10 @@ Click "New" and search for `FlagPages` class name.
 https://processwire.com/talk/topic/7044-release-flagpages/
 
 ## Changelog
+
+### 0.2.2
+- Add method to return flagged pages count
+- Add option to insert HTML class names as renderList's parameter
 
 ### 0.2.1
 Using ASM select for chosing user roles with flagging permission
