@@ -6,11 +6,8 @@ if ($page->sticky) {
 	$flagLabel = "<i class='fa fa-star-o'></i> Make sticky";
 }
 
-if ($user->bookmarkedPagesByUser->has($page)) {
-	$bookmarkLabel = "<i class='fa fa-bookmark'></i> Remove from bookmarks";
-} else {
-	$bookmarkLabel = "<i class='fa fa-bookmark-o'></i> Add to bookmarks";
-}
+
+echo $modules->get("FlagPages")->renderLink("<i class='fa fa-bookmark-o'></i> Add to bookmarks", "<i class='fa fa-bookmark'></i> Remove from bookmarks");
 
 if($page->editable() && $page->template == "wiki-page") {
 	echo "<li><a href='" . $page->url . "?action=make-sticky'>$flagLabel</a> </li>";
