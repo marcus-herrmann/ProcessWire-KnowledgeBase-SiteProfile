@@ -15,7 +15,7 @@ if (!function_exists('truncateText')) {
 	}
 }
 
-if ($user->isLoggedin()) {
+if ($user->isLoggedin() && $user->hasRole('wiki-user')) {
 
 	if($q = $sanitizer->selectorValue($input->get->q)) {
 
