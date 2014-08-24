@@ -35,9 +35,30 @@
 		'code_formatting' => false,
 		'debug' => false
 	);
-	echo "<h3 class='title title-area'>
-		<span>$areaTitlePrefix
-			<a href='$areaLink'>$areaTitle</a>&nbsp;
-			<a href='" . $config->urls->admin . "page/add/?parent_id=" . $page->id . "' title='Add subpage' class='btn btn-addsubpage'><i class='fa fa-plus-circle'></i></a></span></h3>";
+?>
+
+<?php
+	$areas = $pages->get('/')->children;
+
+	echo "<select name='url' onchange='document.location.href = this.value'>";
+
+	foreach ($areas as $a) {
+
+		$selected = ($a->url == $page->url)? " selected='selected'" : "";
+
+		echo "<option {$selected} value='$a->url'>{$a->title}</option>";
+	}
+
+	echo "</select>"; ?>
+	<!--//	echo "<h3 class='title title-area'>-->
+<!--//		<span>$areaTitlePrefix-->
+<!--//			<a href='$areaLink'>$areaTitle</a>&nbsp;-->
+<!--//			<a href='" . $config->urls->admin . "page/add/?parent_id=" . $page->id . "' title='Add subpage' class='btn btn-addsubpage'><i class='fa fa-plus-circle'></i></a></span></h3>";-->
+
+
+
+<?php
+
+
 	echo $treeMenu->render($options, null, $page->rootParent);
 ?>
